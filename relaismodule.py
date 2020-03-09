@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
+// bla
 een  = 6
 twee = 13
 drie = 19
