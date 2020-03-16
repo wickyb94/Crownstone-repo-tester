@@ -1,10 +1,17 @@
 import RPi.GPIO as GPIO
 import time
 
+<<<<<<< HEAD
 # dit zijn de pinnen S0,S1,S2,S3,sic op de multiplexer 
 mp = [6,13,19,26,21]  
 
 GPIO.tmode(GPIO.BCM)
+=======
+# dit zijn de pinnen S0,S1,S2,S3,sic op de 
+mp = [6,13,19,26,21]  
+
+GPIO.setmode(GPIO.BCM)
+>>>>>>> 1328a360cb9f478a49f1fd5458f6c87596088dec
 for setting in range(0,5):
     GPIO.setup(mp[setting],GPIO.OUT)
 
