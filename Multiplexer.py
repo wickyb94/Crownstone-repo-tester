@@ -4,7 +4,7 @@ import time
 # dit zijn de pinnen S0,S1,S2,S3,sic op de multiplexer 
 mp = [6,13,19,26,21]  
 
-GPIO.setmode(GPIO.BCM)
+GPIO.tmode(GPIO.BCM)
 for setting in range(0,5):
     GPIO.setup(mp[setting],GPIO.OUT)
 
