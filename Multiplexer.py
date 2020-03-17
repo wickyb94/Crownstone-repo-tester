@@ -1,17 +1,12 @@
 import RPi.GPIO as GPIO
 import time
 
-<<<<<<< HEAD
+
 # dit zijn de pinnen S0,S1,S2,S3,sic op de multiplexer 
 mp = [6,13,19,26,21]  
 
-GPIO.tmode(GPIO.BCM)
-=======
-# dit zijn de pinnen S0,S1,S2,S3,sic op de 
-mp = [6,13,19,26,21]  
-
 GPIO.setmode(GPIO.BCM)
->>>>>>> 1328a360cb9f478a49f1fd5458f6c87596088dec
+
 for setting in range(0,5):
     GPIO.setup(mp[setting],GPIO.OUT)
 
@@ -41,12 +36,13 @@ def multi(channel):
 
 GPIO.output(mp[4],GPIO.HIGH)
 
-for x in range(8,16):
+for x in range(0,16):
     multi(x)
-    print( "test")
-    time. sleep(0.1)
-#multi(12)
-#time.sleep(3)
+    print(x)
+    time. sleep(1)
+
+#multi(15)
+#time.sleep(1)
 #print ("test 2")
 
 GPIO.cleanup()

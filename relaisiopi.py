@@ -14,3 +14,6 @@ time.sleep(1)
 for x in range (1,17):
     bus.write_pin(x, 0)
     time.sleep(0.5)
+for x in range (1,17):
+    bus.write_pin(x, 1)
+    time.sleep(0.5)
