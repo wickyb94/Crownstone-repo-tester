@@ -18,9 +18,8 @@ from jlink import *
 
 #print(session.returncode)
 
-#run_commands(self,'connect',60)
 
 ob = Programmer()
 commands = JLink(ob)
-x = commands.run_commands(['connect','','s','','i','exit'], 0)
+x = commands.run_commands(['i','exit'], 0)
 print (x)
