@@ -13,11 +13,14 @@ from jlink import *
 #    print(line.decode('utf-8'))
 #    print('hoi')
 
-if session.returncode != 0:
-    print("FAILED!")
+#if session.returncode != 0:
+#    print("FAILED!")
 
 #print(session.returncode)
 
 #run_commands(self,'connect',60)
-a=JLink('NRF52832_XXAA')
-a.run_commands('i',60)
+
+ob = Programmer()
+commands = JLink(ob)
+x = commands.run_commands(['connect','','s','','i','exit'], 0)
+print (x)

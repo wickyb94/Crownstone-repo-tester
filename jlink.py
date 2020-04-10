@@ -86,7 +86,7 @@ class JLink(Programmer):
             raise AdaLinkError("'{0}' missing. Is the J-Link folder in your system "
                                "path?".format(self._jlink_path))
 
-    def run_filename(self, filename, timeout_sec=60):
+    def run_filename(self, filename, timeout_sec=0):
         """Run the provided script with JLinkExe.  Filename should be a path to
         a script file with JLinkExe commands to run.  Returns the output of
         JLinkExe.  If execution takes longer than timeout_sec an exception will
@@ -97,25 +97,25 @@ class JLink(Programmer):
         args.extend(self._jlink_params)
         args.append(filename)
         process = subprocess.Popen(args, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-        if timeout_sec is not None:
+        #if timeout_sec is not None:
             # Use a timer to stop the subprocess if the timeout is exceeded.
             # This helps prevent very subtle issues with deadlocks on reading
             # subprocess output.  See: http://stackoverflow.com/a/10012262
-            def timeout_exceeded(p):
-                # Stop the subprocess and kill the whole program.
-                p.kill()
-                raise AdaLinkError('JLink process exceeded timeout!')
-            timeout = threading.Timer(timeout_sec, timeout_exceeded, [process])
-            timeout.start()
+         #   def timeout_exceeded(p):
+         #       # Stop the subprocess and kill the whole program.
+         #       p.kill()
+         #       raise AdaLinkError('JLink process exceeded timeout!')
+         #   timeout = threading.Timer(timeout_sec, timeout_exceeded, [process])
+         #   timeout.start()
         # Grab output of JLink.
         output, err = process.communicate()
-        if timeout_sec is not None:
-            # Stop timeout timer when communicate call returns.
-            timeout.cancel()
+        #if timeout_sec is not None:
+        #    # Stop timeout timer when communicate call returns.
+        #    timeout.cancel()
         logger.debug('JLink response: {0}'.format(output))
         return output.decode('utf-8')
 
-    def run_commands(self, commands, timeout_sec=60):
+    def run_commands(self, commands, timeout_sec=0):
         """Run the provided list of commands with JLinkExe.  Commands should be
         a list of strings with with JLinkExe commands to run.  Returns the
         output of JLinkExe.  If execution takes longer than timeout_sec an
