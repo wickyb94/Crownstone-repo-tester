@@ -35,7 +35,7 @@ class JLink(Programmer):
     # Name used to identify this programmer on the command line.
     name = 'jlink'
 
-    def __init__(self, connected, jlink_exe='JLinkExe', jlink_path='/opt/JLink_Linux_V664_arm', params='-Device NRF52832_XXAA -speed 4000 -If SWD'):
+    def __init__(self, connected, jlink_exe='JLinkExe', jlink_path='/opt/JLink_Linux_V664_arm', params='-Device NRF52832_XXAA -speed 4000 -If SWD -autoconnect 1'):
         """Create a new instance of the JLink communication class.  By default
         JLinkExe should be accessible in your system path and it will be used
         to communicate with a connected JLink device.
