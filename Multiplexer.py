@@ -8,9 +8,6 @@ GPIO.setmode(GPIO.BCM)
 
 for setting in range(0,5):
     GPIO.setup(mp[setting],GPIO.OUT)
-def formule (self,y,x):
-    self.c = y + x
-    return self.c
 def multi(channel):
     controlPin = [mp[0],mp[1],mp[2],mp[3]] 
     muxChannel = [

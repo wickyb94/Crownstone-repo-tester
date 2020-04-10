@@ -2,24 +2,25 @@ import subprocess
 import time
 from jlink import *
 
-#cjlink = ['/opt/JLink_Linux_V664_arm/JLinkExe', '-Device', 'NRF52832_XXAA', '-speed', '4000', '-if', 'SWD', '-autoconnect', '1']
-#flash_command = cjlink + ['i']
-#session = subprocess.Popen(cjlink, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-#stdout = session.communicate()
+cjlink = ['/opt/JLink_Linux_V664_arm/JLinkExe', '-Device', 'NRF52832_XXAA', '-speed', '4000', '-if', 'SWD', '-autoconnect', '1']
+flash_command = cjlink + ['i']
+session = subprocess.Popen(cjlink, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+stdout = session.communicate()
 
-#for line in iter(stdout):
-#    if line.decode('utf-8') == '':
-#        break
-#    print(line.decode('utf-8'))
-#    print('hoi')
+for line in iter(stdout):
+    if line.decode('utf-8') == '':
+        break
+    print(line.decode('utf-8'))
+    print('hoi')
 
-#if session.returncode != 0:
-#    print("FAILED!")
+if session.returncode != 0:
+    print("FAILED!")
 
-#print(session.returncode)
+print(session.returncode)
 
 
-ob = Programmer()
-commands = JLink(ob)
-x = commands.run_commands(['i','exit'], 0)
-print (x)
+#ob = Programmer()
+#commands = JLink(ob)
+#x = commands.run_commands(['st','device nRF52832_XXAA','SelectInterface SWD','speed 1000','i','exit'], 0)
+#print (x)
+
