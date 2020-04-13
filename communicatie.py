@@ -20,5 +20,8 @@ print(session.returncode)
 '''
 ob = Programmer()
 commands = JLink(ob)
-jlinkout = commands.run_commands(['connect','i','exit'], 4)
-print (jlinkout)
+
+jlinktupp = commands.run_commands(['connect','i','exit'], 4)
+jlinkout = jlinktupp.split('3.300V')[1]
+print (jlinktupp)
+
