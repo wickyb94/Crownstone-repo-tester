@@ -1,8 +1,8 @@
 import RPi.GPIO as GPIO
 import time
-import subprocess
 
-# dit zijn de pinnen S0,S1,S2,S3,EN op de multiplexer 
+
+# these are the pins S0,S1,S2,S3,EN of the multiplexer connected to the Raspberry PI
 mp = [6,13,19,26,21]
 
 GPIO.setmode(GPIO.BCM)
@@ -10,7 +10,8 @@ GPIO.setmode(GPIO.BCM)
 for setting in range(0,5):
     GPIO.setup(mp[setting],GPIO.OUT)
 
-def multi(channel):
+#function where you can decide wich channel is connected. It ranges from 1
+def multiplex(channel):
     channel = channel-1
     controlPin = [mp[0],mp[1],mp[2],mp[3]] 
     muxChannel = [
@@ -35,5 +36,7 @@ def multi(channel):
     for i in range(0,4):
         GPIO.output(controlPin[i],muxChannel[channel][i])
     GPIO.output(mp[4],0)
+    time.sleep(0.5)
 
+#cleanup only needed in the main code
 #GPIO.cleanup()
