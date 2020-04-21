@@ -1,0 +1,12 @@
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Received payload {'string': 'HelloWorld', 'data': [72, 101, 108, 108, 111, 87, 111, 114, 108, 100]}
+Quitting BluenetLib...
