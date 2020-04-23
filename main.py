@@ -4,8 +4,7 @@ from multiplexer import *
 from uarttest import *
 #test = 1
 
-
-bus.write_pin(1,0)
+setrelay(relay1,1,True)
 multiplex(1)
 '''
 #using a function from jlink.py to run a few command when doing that the first command must be connect
@@ -18,7 +17,7 @@ print (jlinkout)
 uart('HelloWorld')
 #test = input()
 
-bus.write_pin(1 , 1)
+setrelay(relay1,1,False)
 time.sleep(1)
 
 GPIO.cleanup()
