@@ -34,8 +34,9 @@ class JLink(Programmer):
 
     # Name used to identify this programmer on the command line.
     name = 'jlink'
+    #params '-Device NRF52832_XXAA -speed 1000 -If SWD -autoconnect 1' als niet op juiste manier connect
 
-    def __init__(self, connected, jlink_exe='JLinkExe', jlink_path='/opt/JLink_Linux_V664_arm', params='-Device NRF52832_XXAA -speed 1000 -If SWD -autoconnect 1'):
+    def __init__(self, connected, jlink_exe='JLinkExe', jlink_path='/opt/JLink_Linux_V664_arm', params=''):
         """Create a new instance of the JLink communication class.  By default
         JLinkExe should be accessible in your system path and it will be used
         to communicate with a connected JLink device.
@@ -86,7 +87,7 @@ class JLink(Programmer):
             raise AdaLinkError("'{0}' missing. Is the J-Link folder in your system "
                                "path?".format(self._jlink_path))
 
-    def run_filename(self, filename, timeout_sec=4):
+    def run_filename(self, filename, timeout_sec=20):
         """Run the provided script with JLinkExe.  Filename should be a path to
         a script file with JLinkExe commands to run.  Returns the output of
         JLinkExe.  If execution takes longer than timeout_sec an exception will
@@ -115,7 +116,7 @@ class JLink(Programmer):
         logger.debug('JLink response: {0}'.format(output))
         return output.decode('utf-8')
 
-    def run_commands(self, commands, timeout_sec=4):
+    def run_commands(self, commands, timeout_sec=20):
         """Run the provided list of commands with JLinkExe.  Commands should be
         a list of strings with with JLinkExe commands to run.  Returns the
         output of JLinkExe.  If execution takes longer than timeout_sec an
