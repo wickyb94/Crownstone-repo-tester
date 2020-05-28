@@ -2,40 +2,35 @@ from jlink import *
 from relaisiopi import *
 from multiplexer import *
 from uarttest import *
-import asyncio, time
-from setuart import *
-#test = 1
 
+#The main script excecutes the tests and functions of the other scripts
+# These are the pins S0,S1,S2,S3,EN of the multiplexer connected to the Raspberry PI
+mp = [6, 13, 19, 26, 21]
 
-#multiplex(1)
+GPIO.setmode(GPIO.BCM)
+for setting in range(0, 5):
+    GPIO.setup(mp[setting], GPIO.OUT)
 
-#print(findUsbBleDongleHciIndex())
-#enableUart('HelloWorld')
-uart('HelloWorld')
+bluenet.initializeUSB("/dev/ttyUSB0")
 
-
-
-#using a function from jlink.py to run a few command when doing that the first command must be connect
-'''
 ob = Programmer()
 commands = JLink(ob)
-jlinktupp = commands.run_commands(['connect','i','mem32 0 10','exit'], 4)
-jlinkout = jlinktupp.split('3.300V')[1]
-print (jlinkout)
-'''
-'''
-ob = Programmer()
-commands = JLink(ob)
-jlinktupp = commands.run_filename('/home/pi/firmware-tester/loadfirmware.script', 20)
-jlinkout = jlinktupp.split('3.300V')[2]
-print (jlinkout)
-'''
 
-print('test')
-#uart('HelloWorld')
-#test = input()
+for select in range(1, 3):
+    setRelayOn(select)
+
+    multiplex(select, mp[0], mp[1], mp[2], mp[3], mp[4])
+
+    jlinktupp = commands.run_filename('/home/pi/firmware-tester/loaddevfirmware.script', 20)
+    jlinkout = jlinktupp.split('3.300V')[2]
+    print(jlinkout)
+    print('update is done ')
+    time.sleep(1)
+
+    print(getMacAddress())
+
+    setRelayOff(select)
 
 
-time.sleep(1)
-
+bluenet.stop()
 GPIO.cleanup()

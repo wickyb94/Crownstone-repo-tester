@@ -1,0 +1,10 @@
+st
+device nRF52832_xxAA
+SelectInterface SWD
+speed 4000
+erase
+sleep 400
+r
+loadbin /home/pi/Downloads/factory-image_1B10B_fw4.0.1.hex
+r
+q

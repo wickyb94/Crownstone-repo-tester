@@ -48,4 +48,3 @@ def setAllRelayOff():
     for relaynumber in range(17, 33):
         setRelayOff(relaynumber)
         time.sleep(0.5)
-

@@ -1,30 +1,34 @@
-#!/usr/bin/env
+#!/usr/bin/env python3
 
-"""An example that switches a Crownstone, and prints the r usage of all Crownstones."""
 
 import time
 from BluenetLib import Bluenet, BluenetEventBus, UsbTopics
+from BluenetLib.lib.topics.DevTopics import DevTopics
 
-
-# Create new instance of Bluenet
 bluenet = Bluenet()
 
-# Function that's called when the power usage is updated.
-def showUartMessage(data):
-    print("Received payload", data)
-
-# Start up the USB bridge.
-# Fill in the correct device, see the readme.
-# For firmware versions below 2.1, add the parameter baudrate=38400
-bluenet.initializeUSB("/dev/ttyUSB0")
-bluenet._usbDev.setUartMode(3)
-# Set up event listeners
-BluenetEventBus.subscribe(UsbTopics.uartMessage, showUartMessage)
-
-def uart(hello):
-    bluenet.uartEcho(hello)
+def uartecho(HelloWorld):
+    def showUartMessage(data):
+        print("Received payload", data)
+    echo = BluenetEventBus.subscribe(UsbTopics.uartMessage, showUartMessage)
+    bluenet.uartEcho(HelloWorld)
     time.sleep(0.2)
-bluenet.stop()
+    bluenet.uartEcho(HelloWorld)
+    time.sleep(0.2)
+    BluenetEventBus.unsubscribe(echo)
+
+
+def getMacAddress():
+    result = [True, None]
+    def handleMessage(container, data):
+        container[0] = False
+        container[1] = data
+    subscriptionId = BluenetEventBus.subscribe(DevTopics.ownMacAddress, lambda data: handleMessage(result, data))
+    bluenet._usbDev.requestMacAddress()
+    time.sleep(0.5)
+    BluenetEventBus.unsubscribe(subscriptionId)
+    return result[1]
+
 
 
 
