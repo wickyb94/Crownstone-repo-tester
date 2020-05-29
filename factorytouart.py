@@ -13,6 +13,9 @@ print(jlinkout)
 print('update is done ')
 time.sleep(1)
 
+bluenet._usbDev.setUartMode(3)
+time.sleep(1)
+
 print(getMacAddress())
 
 bluenet.stop()
