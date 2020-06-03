@@ -39,7 +39,7 @@ class Multiplexer:
                 GPIO.output(controlPin[i], muxChannel[channel][i])
             GPIO.output(self.EN, 0)
         else:
-            raise Exception ('Channel number out of bounds, channel must be an integer from 1 to 16")
+            raise Exception ('Channel number out of bounds, channel must be an integer from 1 to 16')
 
     def testAllOutputs(self):
         for channel in range(1, 16):
