@@ -40,11 +40,11 @@ def setRelayOff(relaynumber):
         relayErrors(1)
 
 def setAllRelayOn():
-    for relaynumber in range(17, 33):
+    for relaynumber in range(0, 33):
         setRelayOn(relaynumber)
         time.sleep(0.5)
 
 def setAllRelayOff():
-    for relaynumber in range(17, 33):
+    for relaynumber in range(0, 33):
         setRelayOff(relaynumber)
         time.sleep(0.5)
