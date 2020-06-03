@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
 import time
-
+# The multiplexer allows to 
 class Multiplexer:
+   # List of the 16 channels 
     muxChannel = [
                 [0, 0, 0, 0],
                 [1, 0, 0, 0],
@@ -33,17 +34,17 @@ class Multiplexer:
         channel = channel-1
         if channel > -1 and channel < 17:
             controlPin = [self.S0, self.S1, self.S2, self.S3]
-
-            GPIO.output(self.EN, 1)
-            for i in range(0, 4):
-                GPIO.output(controlPin[i], muxChannel[channel][i])
+            GPIO.output (self.EN, 1)
+            for i in range (0, 4):
+                GPIO.output (controlPin[i], muxChannel[channel][i])
             GPIO.output(self.EN, 0)
         else:
             raise Exception ('Channel number out of bounds, channel must be an integer from 1 to 16')
-
-    def testAllOutputs(self):
-        for channel in range(1, 16):
-            self.switch(channel)
-            print(channel)
-            time.sleep(0.1)
+            
+    #function to test all if all the channels are still working
+    def testAllOutputs (self):
+        for channel in range (1, 16):
+            self.switch (channel)
+            print (channel)
+            time.sleep (0.1)
 
