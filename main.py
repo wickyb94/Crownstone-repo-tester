@@ -29,9 +29,11 @@ for select in range(1, crownstoneCount):
     multiplexerId = math.floor(select / crownstonePerMultiplexer)
     multiplexers[multiplexerId].switch (select)
 
-    jlinktupp = commands.run_filename('/home/pi/firmware-tester/loaddevfirmware.script', 20)
-    jlinkout = jlinktupp.split('3.300V')[2]
-    print(jlinkout)
+    jlinkTupp = commands.run_filename('/home/pi/firmware-tester/loaddevfirmware.script', 20)
+    jlinkOut = jlinkTupp.split('3.300V')[2]
+    succesCount = jlinkTupp.count('100%')
+    print(jlinkOut)
+    print (succesCount)
     print('update is done ')
     time.sleep(1)
 
