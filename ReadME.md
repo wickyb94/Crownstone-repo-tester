@@ -14,9 +14,9 @@ Setting up the 2 busses on the Raspberry to contoll the 2 relay modules.
 ## jlink,errors,base:
 codes fom Adafruit used to communicate with the device connected on the jlink. 
 for more info of the code go to the following site
-[https://github.com/adafruit/Adafruit_Adalink/blob/master/adalink/programmers/jlink.py]
+[link](https://github.com/adafruit/Adafruit_Adalink/blob/master/adalink/programmers/jlink.py)
 JlinkExe is needed on your device and can be found on the site of segger
-[https://www.segger.com/downloads/jlink]
+[link](https://www.segger.com/downloads/jlink)
 
 ## uarttest:
 communicating to the devices with UART using the bluenet library.
