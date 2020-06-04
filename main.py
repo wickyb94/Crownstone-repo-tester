@@ -31,11 +31,11 @@ for select in range (1, crownstoneCount+1):
 
     jlinkTupp = commands.run_filename ('/home/pi/firmware-tester/loaddevfirmware.script', 20)
     jlinkOut = jlinkTupp.split ('3.300V')[2]
-    succesCount = jlinkTupp.count ('100%')
-    print (jlinkOut)
-    print (succesCount)
-    print ('update is done ')
-    time.sleep(1)
+    succesCount = jlinkTupp.count ('J-Link: Flash download')
+    if succesCount == 3:
+        print ('update is done')
+    else:
+        raise Exception ('update failed')
 
     print (getMacAddress())
 
