@@ -1,6 +1,8 @@
 # FIRMWARE TESTER
 
-Code that controlls and communicate with the Crownstones. The code is made for python3.
+Code that controlls and communicate with the Crownstones. The code is made for python3. It is used to test some functions every time a new firmware is released
+
+## Main
 The main python code runs the other codes. 
 
 ## Multiplexer: 
