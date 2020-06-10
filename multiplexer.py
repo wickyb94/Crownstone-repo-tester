@@ -49,8 +49,8 @@ class Multiplexers:
     class Multiplexer:
         #List of the 16 channels 
         muxChannel = [
-                    [0, 0, 0, 0],
-                    [1, 0, 0, 0],
+                       [0, 0, 0, 0],
+                       [1, 0, 0, 0],
                        [0, 1, 0, 0],
                        [1, 1, 0, 0],
                        [0, 0, 1, 0],
