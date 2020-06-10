@@ -4,12 +4,12 @@ from multiplexer import Multiplexer
 from uarttest import *
 import math
 
-# The main script excecutes the tests and functions of the other scripts
+''''The main script excecutes the tests and functions of the other scripts''''
 
-# Intitializing the usb port wich will be used for the bluenet library 
+#Intitializing the usb port wich will be used for the bluenet library 
 bluenet.initializeUSB ("/dev/ttyUSB0")
 
-# setting up how many crownstones are used and weet niet hoe ik de rest moet uitleggen 
+# setting up how many crownstones are used and initializing the classes wich are needed
 crownstoneCount = 2
 ob = Programmer ()
 commands = JLink (ob)
