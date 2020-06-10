@@ -19,7 +19,7 @@ bus2.write_port(1, 0xFF)
 numOffRelays = 16
 numOffBoards = 2
 
-''''the class Multiplexers creates multiple relayboards and combine them so its easier to control them'''' 
+''''the class relayboards creates multiple relayboards and combine them so its easier to control them'''' 
 class Relayboards:
     # creating a list of multiple relayboards and adding them to the list
     relayboards = []
@@ -35,7 +35,7 @@ class Relayboards:
             if relayId == 0:
                 relaynumber = relaynumber + 1
                 relayboards[relayId].sellectRelayOn (relaynumber)
-            elif multiplexerId == 1:
+            elif relayId == 1:
                 relaynumber = relaynumber - (numOffRelays - 1)
                 relayboards[relayId].sellectRelayOn (relaynumber)
             else:
