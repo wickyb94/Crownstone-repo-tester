@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import math
 
 ''''Initializing the pins of the multiplexers these pins are S0,S1,S2,S3,EN of the multiplexers''''
 mp1 = [6, 13, 19, 26, 21]
