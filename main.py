@@ -16,9 +16,10 @@ commands = JLink (ob)
 crownstonePerMultiplexer = 16
 
 multiplexers = Multiplexers()
+relayboards = Relayboards()
 
 for select in range (0, crownstoneCount):
-    setRelayOn (select)
+    relayboards.setRelayOn (select)
     
     multiplexers.switchChannel(select)
 
@@ -32,7 +33,7 @@ for select in range (0, crownstoneCount):
 
     print (getMacAddress())
 
-    setRelayOff (select)
+    relayboards.setRelayOff (select)
 
 
 bluenet.stop ()
