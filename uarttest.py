@@ -5,7 +5,7 @@ from BluenetLib.lib.topics.DevTopics import DevTopics
 
 bluenet = Bluenet()
 
-# Function shows the power usage, using the bluenet library
+''''Function shows the power usage, using the bluenet library''''
 def uartecho(HelloWorld):
     def showUartMessage(data):
         print("Received payload", data)
@@ -16,7 +16,7 @@ def uartecho(HelloWorld):
     time.sleep(0.2)
     BluenetEventBus.unsubscribe(echo)
 
-#Function to get the macaddresss from the crownstone using the bluenet library
+''''Function to get the macaddresss from the crownstone using the bluenet library''''
 def getMacAddress():
     result = [True, None]
     def handleMessage(container, data):
