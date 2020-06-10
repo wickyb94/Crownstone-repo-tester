@@ -1,5 +1,6 @@
 from IOPi import IOPi
 import time
+import math
 
 ''''setting up the busses of the IO-extenssion board to control the relay module board''''
 bus1 = IOPi(0x20)
