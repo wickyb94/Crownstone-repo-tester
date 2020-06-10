@@ -43,9 +43,14 @@ class Multiplexers:
             self.switchChannel (channel)
             #sleep is needed here because only 1 channel can be choosen on the same time
             time.sleep (0.1)
+            
+
+    ''''gets the max number of channels available''''
     def getNumChannels():
-        return numOffChannels * numOffMultiplexers      
-   ''''The multiplexer allows to switch between the different channels of the multiplexer''''
+        return numOffChannels * numOffMultiplexers    
+    
+    
+   ''''The mclass allows make a multiplexer to switch between the different channels''''
     class Multiplexer:
         #List of the 16 channels 
         muxChannel = [
