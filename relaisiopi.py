@@ -30,42 +30,40 @@ class Relayboards:
     
     ''''Function where the user can turn on the choosen relay there are 32 to choose from but goes from 0-31.''''
     def setRelayOn (relaynumber):
+        #Calculates wich baord to choose from
         relayId = math.floor (relaynumber / numOffRelays)
-        if 0 =< relaynumber =< numOffRelays * numOffBoards -1:
-            if relayId == 0:
-                relaynumber = relaynumber + 1
-                relayboards[relayId].sellectRelayOn (relaynumber)
-            elif relayId == 1:
-                relaynumber = relaynumber - (numOffRelays - 1)
-                relayboards[relayId].sellectRelayOn (relaynumber)
-            else:
-                raise Exception ('relaynumber out of bounds, relaynumber must be an integer from 0 to 31')  
+        #checks if the relaynumber that is given is in range
+        if relayId < numOffBoards:
+            #calculates wich relay is given on the choosen board
+            relaynumber = relaynumber * relayId + 1
+            relayboards[relayId].sellectRelayOn (relaynumber)
+        else:
+            raise Exception ('relaynumber out of bounds, relaynumber must be an integer from 0 to 31')  
                 
     ''''Function where the user can turn off the choosen relay there are 32 to choose from but goes from 0-31.''''
     def setRelayOff (relaynumber):
-            relayId = math.floor (relaynumber / numOffRelays)
-            if 0 =< relaynumber =< numOffRelays * numOffBoards -1:
-                if relayId == 0:
-                    relaynumber = relaynumber + 1
-                    relayboards[relayId].sellectRelayOff (relaynumber)
-                elif multiplexerId == 1:
-                    relaynumber = relaynumber - (numOffRelays - 1)
-                    relayboards[relayId].sellectRelayOff (relaynumber)
-                else:
-                    raise Exception ('relaynumber out of bounds, relaynumber must be an integer from 0 to 31')
+        #Calculates wich baord to choose from
+        relayId = math.floor (relaynumber / numOffRelays)
+        #checks if the relaynumber that is given is in range
+        if relayId < numOffBoards:
+            #calculates wich relay is given on the choosen board
+            relaynumber = relaynumber * relayId + 1
+            relayboards[relayId].sellectRelayOff (relaynumber)
+        else:
+            raise Exception ('relaynumber out of bounds, relaynumber must be an integer from 0 to 31')
   
     ''''Function that allows the user to turn on all the relays. 
     For safety reason the relays wont turn simultaneously. 
     The function is used to test if the relayboards works''''
     def setAllRelayOn():
-        for relaynumber in range(0, 33):
+        for relaynumber in range(0, numOffRelays * numOffBoards + 1):
             setRelayOn(relaynumber)
             time.sleep(0.5)
 
     ''''Function that allows the user to turn off all the relays. 
     The function is used to test if the relayboards works''''
     def setAllRelayOff():
-        for relaynumber in range(0, 33):
+        for relaynumber in range(0, numOffRelays * numOffBoards + 1):
             setRelayOff(relaynumber) 
             
     '''''with this class a relayboard can be made to choose the relay''''
@@ -88,8 +86,3 @@ class Relayboards:
                 self.bus.write_pin(relaynumber, 1)
             else:
                 raise Exception ('relaynumber out of bounds, relaynumber must be an integer from 0 to 15')
-
-
-
-        
-
