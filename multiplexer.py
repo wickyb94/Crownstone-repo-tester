@@ -27,16 +27,15 @@ class Multiplexers:
     
    ''''function where you can decide wich channel is connected. It ranges from 0 to 31''''
     def switchChannel(channel):
-      if 0 =< channel =< numOffChannels * numOffMultiplexers -1:
-        #decides wich multiplexer to choose from 0-15 = first multiplexer 16-31 second multiplexer
+        #calculates wich multiplexer to choose from
         multiplexerId = math.floor (channel / numOffChannels)
-        if multiplexerId == 0:
+        #checks if the channel is in range
+        if multiplexerId < numOffMultiplexers:
+            #calculates wich channels is used 
+            channel = channel * multiplexerId
             multiplexers[multiplexerId].switch (channel)
-        elif multiplexerId == 1:
-            channel = channel - numOffChannels
-            multiplexers[multiplexerId].switch (channel)
-      else:
-        raise Exception ('Channel number out of bounds, channel must be an integer from 0 to 31')
+        else:
+            raise Exception ('Channel number out of bounds, channel must be an integer from 0 to 31')
         
    ''''function to test all if all the channels of the multiplexers are still working''''             
     def testAllOutputs (self):
