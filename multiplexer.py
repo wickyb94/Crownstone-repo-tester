@@ -32,7 +32,7 @@ class Multiplexers:
         #checks if the channel is in range
         if multiplexerId < numOffMultiplexers:
             #calculates wich channels is used 
-            channel = channel * multiplexerId
+            channel = channel - numOffChannels * multiplexerId
             multiplexers[multiplexerId].switch (channel)
         else:
             raise Exception ('Channel number out of bounds, channel must be an integer from 0 to 31')
