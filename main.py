@@ -3,8 +3,18 @@ from relayboards import *
 from multiplexers import *
 from uarttest import *
 import math
+import email
 
 ''''The main script excecutes the tests and functions of the other scripts''''
+
+fh = open('demo.txt', 'w')
+
+sender_email = 'wicky_bhaggoe@hotmail.com'
+rec_email = 'wicky_bhaggoe@hotmail.com'
+password = 'Slaapkamer1!'
+subject = 'pycharm'
+body = 'Hi i am a mail from python'
+filename = 'demo.txt'
 
 #Intitializing the usb port wich will be used for the bluenet library 
 bluenet.initializeUSB ("/dev/ttyUSB0")
