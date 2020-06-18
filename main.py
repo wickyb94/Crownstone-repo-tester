@@ -1,6 +1,6 @@
 from jlink import *
-from relaisiopi import *
-from multiplexer import Multiplexer
+from relayboards import *
+from multiplexers import *
 from uarttest import *
 import math
 
